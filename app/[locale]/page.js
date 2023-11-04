@@ -1,0 +1,24 @@
+import Image from 'next/image'
+import s from './page.module.css'
+import Main from '@/compoments/main/main'
+import Nav from '@/compoments/nav/nav'
+
+
+export default async function Home() {
+  const data = await getData() // mettre main dans nav afin de faire passer els infos + faire les filtres + faire les hover 1024
+ 
+  return (
+    <main>
+      <Nav data={data.result}/>
+    </main>
+  )
+}
+
+async function getData(){
+  const res = await fetch('http://195.35.48.48:8080/tableaux')
+  if(res != "")
+    return res.json()
+  else
+    throw new Error('failed to fetc data')
+}
+

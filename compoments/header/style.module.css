@@ -1,0 +1,29 @@
+.link{
+    display: flex;
+    justify-content: center;
+   
+    color: var(--noir);
+    text-decoration: none;
+    width:80px ;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.header{
+    padding: 10px 10px;
+    background: linear-gradient(90deg, var(--rose), var(--vert));
+}
+.boximage{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+@media (min-width: 1024px){
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 45%;
+    }
+}

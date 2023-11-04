@@ -1,0 +1,15 @@
+{
+    "index" : {
+        
+    },
+    "header":{
+        "oeuvre" : "Oeuvres",
+        "contact" : "Contact",
+        "about" : "Moi"
+    },
+    "footer" : {
+        "h3": "Contact",
+        "mp" : "Moyen de Paiement"
+
+    }
+}

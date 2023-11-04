@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "latest",
+    "next-intl": "^2.21.0",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "uuidv4": "^6.2.13"
   }
 }

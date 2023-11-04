@@ -1,0 +1,47 @@
+.nav{
+    background: linear-gradient(90deg, var(--rose), var(--vert));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+.like{
+    position: relative;
+}
+.count{
+    background-color: var(--rose);
+    border-radius: 50%;
+    position: absolute;
+    padding: 3px;
+    top: 5px;
+    left: 15px;
+    font-size: .5em;
+}
+.filtre{
+    padding: 5px 10px;
+    color: var(--noir);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .75em;
+    border-radius: 15px;
+    border: solid var(--noir) 1px;
+}
+.p{
+    padding: auto;
+    margin: auto;
+}
+
+@media (min-width:1024px){
+    .nav{
+        position: absolute;
+        top:15px;
+        background: transparent;
+    }
+    .filtre{
+        margin: 0 20px;
+    }
+    .like{
+        margin: 0 20px;
+    }
+}

@@ -1,0 +1,71 @@
+.container{
+    width: 150px;
+    margin: 5px 5px;
+    list-style: none;
+}
+.h2{
+    
+}
+.ul{
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.class{
+}
+.part{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+.price{
+
+}
+.desc{
+    
+}
+.like{
+    position: relative;
+    background: none;
+    border: none;
+    padding: auto;
+}
+.buy{
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(90deg, var(--rose),var(--vert));
+    color: var(--noir);
+    padding: 0 10px;
+    padding: 5px 10px;
+}
+.h2, .price, .desc{ 
+    margin: auto;
+}
+.part2{
+    display: flex;
+    align-items: center;   
+    justify-content: space-between;
+}
+.plus{
+    position: absolute;
+    top: 12px;
+    left:16px;
+}
+.anim{
+    animation:hey .7s;
+}
+
+@keyframes hey {
+    0%{
+        opacity: .5;
+        transform: scale(1, 1);
+    }
+    50%{
+        opacity: .7;
+        transform: scale(1.5, 1.5);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1,1);
+    }
+}
