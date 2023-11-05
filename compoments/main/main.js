@@ -6,6 +6,7 @@ import tabl from "./tableaux.module.css"
 import { useRouter } from "next/navigation"
 import { v4 as uuidv4 } from 'uuid';
 import Tableaux from "./tableaux"
+import Faq from "../Faq/faq"
 
 export default function Main({data}) {
   const router = useRouter()
@@ -27,7 +28,12 @@ export default function Main({data}) {
     }
       
   }
-  useEffect(()=>{ref.current.classList.add(style.anim)},[d])
+  useEffect(()=>{
+    ref.current.classList.add(style.anim)
+  },[d])
+  const size = ()=>{
+    return screen.width < 768 ? 30 : 60
+  }
   return (
     <div>
       <section className={style.une}>
@@ -39,16 +45,16 @@ export default function Main({data}) {
           <div className={style.flecheGauche} onClick={()=>swtich(+1)}>
             <Image 
             src={"/images/left.png"}
-            width={30}
-            height={30}
+            width={size()}
+            height={size()}
             alt="fleche qui pointe vers la gauche"
             />
           </div>
           <div className={style.flecheDroite} onClick={()=>swtich(-1)}>
             <Image 
             src={"/images/right.png"}
-            width={30}
-            height={30}
+            width={size()}
+            height={size()}
             alt="fleche qui pointe vers la droite"
             />
           </div>
@@ -59,20 +65,23 @@ export default function Main({data}) {
           {data.map((item)=><Tableaux data={item} key={uuidv4()}/>)}
         </ul>
       </section>
+      <Faq />
     </div>
   )
 }
 
 
 function Une({data}){
-
   const img = data.images.split(';')[0]
+  const size = () =>{
+    return screen.width < 768 ? 300 : 600
+  }
   return(
     <div className={style.containerune} >
       <Image 
       src={`http://195.35.48.48:8080/${img}`}
-      width={300}
-      height={300}
+      width={size()}
+      height={size()}
       alt={` oeuvre d art ${data.name}`}
       placeholder="empty"
       />

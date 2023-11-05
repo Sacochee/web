@@ -11,5 +11,13 @@
         "h3": "Contact",
         "mp" : "Moyen de Paiement"
 
+    },
+    "faq" : {
+        "q1" : "blasld asdl das ldas da sd",
+        "r1":  "blakasd asd as da sd as SEO",
+        "q2" : "blasld asdl das ldas da sd",
+        "r2":  "blakasd asd as da sd as SEO"
     }
+        
+    
 }

@@ -1,7 +1,9 @@
 .container{
-    width: 150px;
     margin: 5px 5px;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .h2{
     
@@ -46,6 +48,7 @@
     display: flex;
     align-items: center;   
     justify-content: space-between;
+    width: 150px;
 }
 .plus{
     position: absolute;
@@ -55,7 +58,12 @@
 .anim{
     animation:hey .7s;
 }
-
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 @keyframes hey {
     0%{
         opacity: .5;
@@ -68,5 +76,33 @@
     100%{
         opacity: 1;
         transform: scale(1,1);
+    }
+}
+
+@media (min-width: 375px) {
+    .container{
+        margin: 10px 10px ;
+    }
+    .part2{
+        width: 160px;
+    }
+    .buy{
+        font-size: .937em;
+    }
+}
+@media (min-width: 425px) {
+    .container{
+        margin: 10px 20px ;
+        
+    }
+    .class{
+        justify-content: center;
+        align-items: center;
+    }
+    .part2{ 
+        width: 170px;
+    }
+    .buy{
+        font-size: 1em;
     }
 }

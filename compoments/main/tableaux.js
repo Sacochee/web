@@ -21,30 +21,34 @@ export default function Tableaux({data}){
     const handleGo = ()=>{
       router.push(`/art/${data.id}`)
     }
+    const sizeT = () => screen.width <= 320 ? 150 : screen.width <= 375 ? 160 : 170
     return(
       <li className={tabl.container} key={uuidv4()}>
           <Image 
           src={`http://195.35.48.48:8080/${img}`}
-          width={150}
-          height={150}
+          width={sizeT()}
+          height={sizeT()}
           alt={data.name + "de Patricia"}
           onClick={handleGo}
           />
-          <h2 className={tabl.h2} onClick={handleGo}>
-            {data.name}
-          </h2>
-          <div className={tabl.class} >
-            <div className={tabl.part} onClick={handleGo}>
-              <p className={tabl.desc}>
-                
-                {data.width + "x" + data.heigth + "cm"}
-              </p>
-              <p className={tabl.price}>
-                 {data.price}€
-              </p>
+          <div className={tabl.center}>
+            <h2 className={tabl.h2} onClick={handleGo}>
+              {data.name}
+            </h2>
+            <div className={tabl.class} >
+              <div className={tabl.part} onClick={handleGo}>
+                <p className={tabl.desc}>
+                  
+                  {data.width + "x" + data.heigth + "cm"}
+                </p>
+                <p className={tabl.price}>
+                  {data.price}€
+                </p>
+              </div> 
             </div>
+          </div>
             <div className={tabl.part2} >
-              <button className={tabl.buy} onClick={handleGo}>acheter</button>
+              <button className={tabl.buy} onClick={handleGo}>Acheter</button>
               <button className={tabl.like} onClick={()=>{like ? removeLocalStrorage(data.id) : addlocalStrorage(data.id); setLike(getId(data.id))}} ref={ref}>
                 {
                 like ? 
@@ -63,7 +67,7 @@ export default function Tableaux({data}){
                 
               </button>
             </div>
-          </div>  
+          
       </li>
     )
   }
@@ -114,7 +118,6 @@ function removeLocalStrorage(id){
     }
     if(sav.length != 0){
       localStorage.removeItem("Id")
-      console.log(sav)
       localStorage.setItem("Id", sav.join(";")+";")
     }
     else

@@ -64,6 +64,12 @@
     animation: une 1s ;
 }
 
+@media (min-width : 768px){
+    .flecheDroite, .flecheGauche{
+        top: 270px;
+    }
+}
+
 @keyframes une {
     0%{
         transform: scale(.5,.5);
@@ -75,3 +81,4 @@
         transform: scale(1,1);
     }
 }
+
