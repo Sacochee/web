@@ -3,7 +3,7 @@ import Nav from '@/compoments/nav/nav'
 
 export default async function Home() {
   const data = await getData()   // mettre main dans nav afin de faire passer els infos + faire les filtres + faire les hover 1024
- 
+  console.log(data)
   return (
     <main>
       <Nav data={data.result}/>

@@ -26,10 +26,10 @@ export default function Header() {
         <Link className={style.link} href={"/"}>
           {t('oeuvre')}
         </Link>
-        <Link className={style.link} href={"/"}>
+        <Link className={style.link} href={"/contact"}>
           {t('contact')}
         </Link>
-        <Link className={style.link} href={"/"}>
+        <Link className={style.link} href={"/about"}>
           {t('about')}
         </Link>
       </nav>

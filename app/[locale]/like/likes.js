@@ -4,7 +4,8 @@ import Link from 'next/link'
 import style from "./style.module.css"
 
 export default function Likes({data}) {
-    const ids = localStorage.getItem("Id").split(";")
+    const id = localStorage.getItem("Id")
+    const ids = id ? id.split(";") : []
     const d = []
     data.map((item)=>{
         ids.map((id)=>{
@@ -16,7 +17,7 @@ export default function Likes({data}) {
   return (
     <main>
         {
-            d == undefined ? 
+            d[0] == undefined ? 
             <Oups/> 
             :
             <ul className={style.ul}>
