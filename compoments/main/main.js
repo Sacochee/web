@@ -3,7 +3,6 @@ import style from "./style.module.css"
 import { useEffect, useState, useRef, } from "react"
 import Image from "next/image"
 import tabl from "./tableaux.module.css"
-import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import { v4 as uuidv4 } from 'uuid';
 import Tableaux from "./tableaux"
@@ -89,33 +88,4 @@ function Une({data}){
       </div>
     </div>
   )
-}
-
-function getId(id){
-  const ids = []
-  localStorage.getItem('Id') ? localStorage.getItem('Id').split(';').forEach((i)=>ids.push(i)) : undefined
-  return ids.includes(id.toString())
-}
-
-function addlocalStrorage(id){
-  const local = localStorage.getItem('Id') || undefined
-  localStorage.removeItem("Id")
-  localStorage.setItem('Id', local != undefined ?  local + ";" + id : id)
-}
-
-function removeLocalStrorage(id){
-  if(getId(id)){
-    const ids = []
-    localStorage.getItem('Id').split(';').forEach((i)=>ids.push(i))
-    for(let i = 0 ; i < ids.length; i++){
-      if(ids[i] == id.toString()){
-        ids.slice(i, 1)
-        localStorage.clear
-        localStorage.setItem("Id", ids.forEach((i)=>`${i};`))
-        break
-      }
-      else
-        continue
-    }
-  }
 }

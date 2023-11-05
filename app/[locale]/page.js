@@ -1,11 +1,8 @@
-import Image from 'next/image'
-import s from './page.module.css'
-import Main from '@/compoments/main/main'
 import Nav from '@/compoments/nav/nav'
 
 
 export default async function Home() {
-  const data = await getData() // mettre main dans nav afin de faire passer els infos + faire les filtres + faire les hover 1024
+  const data = await getData()   // mettre main dans nav afin de faire passer els infos + faire les filtres + faire les hover 1024
  
   return (
     <main>
@@ -14,7 +11,7 @@ export default async function Home() {
   )
 }
 
-async function getData(){
+export async function getData(){
   const res = await fetch('http://195.35.48.48:8080/tableaux')
   if(res != "")
     return res.json()

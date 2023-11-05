@@ -1,5 +1,5 @@
 "use client"
-import React,{useRef, useState, useEffect} from "react"
+import {useRef, useState, useEffect} from "react"
 import { useRouter } from "next/navigation"
 import tabl from "./tableaux.module.css"
 import {v4 as uuidv4} from "uuid"
@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function Tableaux({data}){
     const router = useRouter()
     const ref = useRef()
-    const img = data.images.split(';')[0]
+    const img = data.images.split(";")[0]
     const [like, setLike] = useState(false)
     useEffect(()=>{
       setLike(getId(data.id))
@@ -68,33 +68,55 @@ export default function Tableaux({data}){
     )
   }
 
-  
+export function getIDs(){
+  let ids = localStorage.getItem("Id")
+  if(ids != null){
+    ids = ids.split(";")
+    ids.pop()
+    return ids
+  }
+  else
+    return undefined 
+}
+
 function getId(id){
-    const ids = []
-    localStorage.getItem('Id') ? localStorage.getItem('Id').split(';').forEach((i)=>ids.push(i)) : undefined
-    return ids.includes(id.toString())
-  }
+  let ids = localStorage.getItem("Id")
+  if(ids != null)
+    return ids.split(";").includes(id.toString())
+  else
+    return false
   
-  function addlocalStrorage(id){
-    const local = localStorage.getItem('Id') || undefined
+}
+  
+function addlocalStrorage(id){
+  let ids = localStorage.getItem("Id")
+  if(ids != null){
     localStorage.removeItem("Id")
-    localStorage.setItem('Id', local ?  local + ";" + id : id)
+    ids = ids + id + ";"
+    localStorage.setItem("Id", ids)
+  }
+  else{
+    localStorage.setItem("Id", `${id};`)
   }
   
-  function removeLocalStrorage(id){
-    if(getId(id)){
-      const ids = []
-      localStorage.getItem('Id').split(';').forEach((i)=>ids.push(i))
-      for(let i = 0 ; i < ids.length; i++){
-        if(ids[i] == id.toString()){
-          ids.slice(i, 1)
-          localStorage.clear
-          localStorage.setItem("Id", ids.forEach((i)=>`${i};`))
-          break
-        }
-        else
-          continue
+}
+  
+function removeLocalStrorage(id){
+  if(getId(id)){
+     const ids = []
+    localStorage.getItem('Id').split(';').forEach((i)=>ids.push(i))
+    ids.pop()
+    const sav = []
+    for(let i = 0 ; i < ids.length; i++){
+      if(ids[i] != id.toString()){
+        sav.push(ids[i])
       }
     }
+    if(sav != undefined){
+      localStorage.removeItem("Id")
+      localStorage.setItem("Id", sav.join(";")+";")
+    }
+    else
+      localStorage.removeItem("Id")
   }
-  
+}

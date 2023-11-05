@@ -3,17 +3,26 @@ import { useEffect, useState, useReducer,} from "react"
 import s from "./.module.css"
 import Image from "next/image"
 import Main from "../main/main"
+import { getIDs } from "../main/tableaux"
+import { useRouter } from "next/navigation"
 
 export default function Nav({data}) {
     const [nav, setNav] = useState(false)
+    const [nb , setNb] = useState(0)
+    const [reducer, dispatch] = useReducer(redux, data)
+    const [state, setState] = useState(reducer)
+
+    const router = useRouter()
     const handle = () =>{
         setNav(nav ? false : true)
     }
-    const [nb , setNb] = useState(0)
+    
     const getList = ()=>{
-      const local = localStorage.getItem("Id")
-      const item = local ? local.split(";") : []
-      setNb(item.length - 1)
+      let ids = getIDs()
+      console.log(ids)
+      if(ids != undefined){
+        setNb(ids.length)
+      }
     }
     useEffect(()=>{getList()}, [])
     const getData = (data)=>{
@@ -21,8 +30,7 @@ export default function Nav({data}) {
       dispatch({type : "croissantPrix"})
       setState(reducer)
     }
-    const [reducer, dispatch] = useReducer(redux, data)
-    const [state, setState] = useState(reducer)
+    
   return (
     <>
     <nav className={s.nav}>
@@ -38,7 +46,7 @@ export default function Nav({data}) {
           />
 
         </div>
-        <div className={s.like}>
+        <div className={s.like} onClick={()=>router.push("/like")}>
           <Image 
             src={"/images/coeur.png"}
             width={20}
