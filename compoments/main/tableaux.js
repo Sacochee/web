@@ -112,11 +112,13 @@ function removeLocalStrorage(id){
         sav.push(ids[i])
       }
     }
-    if(sav != undefined){
+    if(sav.length != 0){
       localStorage.removeItem("Id")
+      console.log(sav)
       localStorage.setItem("Id", sav.join(";")+";")
     }
     else
       localStorage.removeItem("Id")
   }
+  
 }

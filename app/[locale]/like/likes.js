@@ -16,7 +16,7 @@ export default function Likes({data}) {
   return (
     <main>
         {
-            data == undefined ? 
+            d == undefined ? 
             <Oups/> 
             :
             <ul className={style.ul}>
