@@ -1,6 +1,6 @@
 "use client";
 import style from "./style.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "@/compoments/hooks";
 
@@ -14,12 +14,15 @@ export default function Vente({ data }) {
     } else setImg(0);
   };
   return (
-    <main style={{ position: "relative" }}>
+    <main>
       {full ? (
-        <div className={style.bg} onClick={() => setFull(false)}>
-          <Image src={""} />
-          <Full data={lst[img]} />
-        </div>
+        <Container>
+          <div onClick={() => setFull(false)} className={style.over}>
+            <div className={style.top}></div>
+            <Full data={lst[img]} />
+            <div className={style.bg}></div>
+          </div>
+        </Container>
       ) : (
         <>
           <div className={style.center}>
@@ -82,12 +85,24 @@ export default function Vente({ data }) {
 
 function Full({ data }) {
   return (
-    <Image
-      src={`http://195.35.48.48:8080/${data}`}
-      width={screen.width}
-      height={screen.width}
-      alt="tableaux de patricial en full Screen"
-      className={style.full}
-    />
+    <div
+      style={{ width: screen.width }}
+      className={`${style.center}  ${style.full}`}
+    >
+      <Image
+        src={`http://195.35.48.48:8080/${data}`}
+        width={screen.width < screen.height ? screen.width : screen.height}
+        height={screen.width < screen.height ? screen.width : screen.height}
+        alt="tableaux de patricial en full Screen"
+        className={style.full}
+      />
+    </div>
   );
+}
+
+function Container({ children }) {
+  useEffect(() => {
+    scrollBy(0, 0)
+  });
+  return <div>{children}</div>;
 }

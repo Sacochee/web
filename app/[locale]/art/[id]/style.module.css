@@ -63,7 +63,7 @@
 .height{
     position: relative;
     transform: rotate(-90deg);
-    left: 23px;
+    left: 20px;
     color: red;
 }
 .cm{
@@ -73,7 +73,7 @@
 .width{
     position: relative;
     color: green;
-    left: 25px;
+    left: 20px;
 }
 .btn{
     background-color: var(--noir);
@@ -89,14 +89,25 @@
     position: relative;
 }
 .full{
-    position: absolute;
-    top: 30%;
-    z-index: 8;
-    
+    background-color: var(--noir);
 }
 .bg{
-    position: absolute;
     background-color: black;
-    z-index: 7;
-    height: 800px;
+    position: relative;
+    top: -5px;
+    height: 40px;
+}
+.top{
+    background-color: black;
+    top:0;
+
+}
+.over{
+    position: absolute;
+    top:0;
+
+    
+}
+.little{
+    height: 10px;
 }

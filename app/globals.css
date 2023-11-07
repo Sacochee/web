@@ -1,10 +1,14 @@
-:root{
-    --noir : #001011;
-    --bleu-clair : #32CBFF;
-    --bleu-fonce : #005887;
-    --rose : #DFC7DE;
-    --vert : #0AB080;
+:root {
+  --noir: #001011;
+  --bleu-clair: #32cbff;
+  --bleu-fonce: #005887;
+  --rose: #dfc7de;
+  --vert: #0ab080;
 }
-html, body{
-    margin: auto;
+html,
+body {
+  margin: auto;
+}
+body {
+  position: relative;
 }
