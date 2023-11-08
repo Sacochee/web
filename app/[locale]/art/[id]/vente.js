@@ -18,7 +18,7 @@ export default function Vente({ data }) {
       {full ? (
         <Container>
           <div onClick={() => setFull(false)} className={style.over}>
-            <div className={style.top}></div>
+            {screen.availWidth < screen.availHeight ? <div className={style.top} style={{height : (screen.availHeight) - screen.availWidth - 150}}></div> : undefined}
             <Full data={lst[img]} />
             <div className={style.bg}></div>
           </div>
