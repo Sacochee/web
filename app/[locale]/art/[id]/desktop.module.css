@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    margin-left: 5%;
+}
+.part{
+    display: flex;
+    flex-direction: column;
+}
+.select{
+    margin: 10px 5px;
+}
+.select:first-child{
+    margin-top: 0;
+}
+.select:hover{
+    opacity: .5;
+}
