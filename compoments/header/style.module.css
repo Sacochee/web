@@ -26,4 +26,18 @@
         align-items: center;
         padding-left: 45%;
     }
+    .link{
+        font-size: 1.6em;
+        padding: 10px 20px;
+        margin: 10px 50px;
+        border-radius: 10px;
+    }
+    .link:hover{
+        background-color: var(--noir);
+        color: #fff;
+        
+    }
+    .boximage:hover{
+        opacity: .5;
+    }
 }

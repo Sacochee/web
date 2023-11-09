@@ -21,6 +21,6 @@ async function getData(id){
 
 function Oups(){
     return(<div>
-
+            Error
     </div>)
 }
